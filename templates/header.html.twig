@@ -1,39 +1,55 @@
 <header>
 <h1>Project Manager</h1>
-<nav>
-	<ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
-	  	<li class="nav-item">
-    		
-    			<img alt="" src="/images/logo-only.png" height="40px">
-    	
-  		</li>
-  		<li class="nav-item">
-    		<a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
-  		</li>
-  		<li class="nav-item">
-    		<a class="nav-link" id="description-tab" data-toggle="tab" href="#description" role="tab" aria-controls="description" aria-selected="false">Description</a>
-  		</li>
-  		<li class="nav-item">
-    		<a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
-  		</li>
-  		<li class="nav-item dropdown">
-    		<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Project</a>
-    			<div class="dropdown-menu">
-                  <a class="dropdown-item" href="#">List</a>
-                  <a class="dropdown-item" href="#">Create</a>
 
-    			</div>
-  		</li>
-  		<li class="nav-item dropdown">
-    		<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">User</a>
-    			<div class="dropdown-menu">
-                  <a class="dropdown-item" href="#">Login</a>
-                  <a class="dropdown-item" href="#">Register</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">Logout</a>
-    			</div>
-  		</li>
+<nav class="navbar navbar-expand-sm navbar-light bg-light bg-faded" data-toggle="sticky-onscroll">
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-content" aria-controls="nav-content" aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
 
-	</ul>
+<!-- Brand -->
+<a class="navbar-brand" href="#"><img alt="" src="/images/logo-only.png" height="40px"></a>
+
+    <div class="collapse navbar-collapse justify-content-center" id="nav-content">
+    	<ul class="navbar-nav nav" id="myNav" >
+      		<li class="nav-item">
+        		<a class="nav-link active" id="home-tab" href="/" role="tab">Home</a>
+      		</li>
+      		<li class="nav-item">
+        		<a class="nav-link" id="description-tab" href="/" role="tab">Description</a>
+      		</li>
+      		<li class="nav-item">
+        		<a class="nav-link" id="contact-tab" href="/" role="tab">Contact</a>
+      		</li>
+      		<li class="nav-item dropdown">
+        		<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="/" role="button">Project</a>
+        			<div class="dropdown-menu">
+                      <a class="dropdown-item" href="/">List</a>
+                      <a class="dropdown-item" href="/add/product">Create</a>
+    
+        			</div>
+      		</li>
+      		<li class="nav-item dropdown">
+        		<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="/" role="button">User</a>
+        			<div class="dropdown-menu">
+                      <a class="dropdown-item" href="/">Login</a>
+                      <a class="dropdown-item" href="/">Register</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="/">Logout</a>
+        			</div>
+      		</li>
+    
+    	</ul>
+	</div>
 </nav>
+
 </header>
+
+{% set infoMessages = app.flashes('info') %}
+
+{% if infoMessages is not empty %}
+<div class="container">
+	{% for message in infoMessages %}
+		<p class="bg-success">{{ message }}</p>
+	{% endfor %}
+</div>
+{% endif %}

@@ -1,0 +1,79 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} - Add Product{% endblock %}
+
+{% block body %}
+
+	{# this is a comment #}
+	
+	{# create a new var range #}
+	{# {% set range = [1, 2, 3, 4, 5] %} #}
+	
+	{# display the range #}
+	{# <ul> #}
+	{# {% for element in range %} #}
+	{# 	<li>{{ element }}</li> #}
+	{# {%  endfor %} #}
+	{# </ul> #}
+	
+	{# condition #}
+	{# {% if isTrue %} #}
+	  
+	{# {% endif %} #}
+	
+	{# {{ 'My awesome text'|upper|title }}<br/>
+    {{ 'My awesome text'|upper|length }}<br/>
+	
+	{{ date().format('Y-m-d') }}#}
+	
+	{% set nowDate = date() %}<br/>
+	
+	english : {{ nowDate|date('Y-d-m') }}<br/>
+	french : {{ nowDate|date('d-m-Y') }}<br/>
+	
+	{# {{ form(formular) }} #}
+
+{{ form_start(formular) }}	
+<table class="add_product">
+  <tr>
+    <th>{{ form_label(formular.name) }}</th>
+    <th>{{ form_widget(formular.name) }}</th> 
+
+  </tr>
+  <tr>
+    <td>{{ form_label(formular.description) }}</td>
+    <td>{{ form_widget(formular.description) }}</td> 
+
+  </tr>
+  <tr>
+    <td>{{ form_label(formular.version) }}</td>
+    <td>{{ form_widget(formular.version) }}</td> 
+
+  </tr>
+  <tr>
+    <td></td>
+    <td>{{ form_row(formular.submit) }}</td> 
+
+  </tr>
+</table>
+{{ form_rest(formular) }}
+{{ form_end(formular)}}
+
+	
+{# 	{{ form_start(formular) }}
+	
+		{{ form_errors(formular.name) }}
+		{{ form_label(formular.name) }}
+		{{ form_widget(formular.name) }}
+		
+		{{ form_row(formular.description) }}
+		
+		{{ form_row(formular.version) }}
+		
+		{{ form_row(formular.submit) }}
+		
+	{{ form_rest(formular) }}
+	{{ form_end(formular)}} #}
+	
+
+{% endblock %}
