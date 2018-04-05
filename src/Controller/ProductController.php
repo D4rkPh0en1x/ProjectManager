@@ -14,13 +14,13 @@ use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
-
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 
 
 class ProductController
 {
-    public function addProduct(Environment $twig, FormFactoryInterface $factory, Request $request, ObjectManager $manager, SessionInterface $session)
+    public function addProduct(Environment $twig, FormFactoryInterface $factory, Request $request, ObjectManager $manager, SessionInterface $session, UrlGeneratorInterface $urlGenerator)
     {
         $product = new Product();
         $builder = $factory->createBuilder(FormType::class, $product);
@@ -49,7 +49,7 @@ class ProductController
             $manager->persist($product);
             $manager->flush();
             $session->getFlashBag()->add('info', 'Your product was inserted correctly');
-            return new RedirectResponse('/');
+            return new RedirectResponse($urlGenerator->generate('homepage'));
         }
        
         

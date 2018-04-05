@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} - Register user{% endblock %}
+
+{% block body %}
+
+{{ form_start(registrationFormular) }}	
+<table class="register_user">
+  <tr>
+    <th>{{ form_label(registrationFormular.username) }}</th>
+    <th>{{ form_widget(registrationFormular.username) }}</th> 
+
+  </tr>
+  <tr>
+    <td>{{ form_label(registrationFormular.firstname) }}</td>
+    <td>{{ form_widget(registrationFormular.firstname) }}</td> 
+
+  </tr>
+  <tr>
+    <td>{{ form_label(registrationFormular.lastname) }}</td>
+    <td>{{ form_widget(registrationFormular.lastname) }}</td> 
+
+  </tr>
+    <tr>
+    <td>{{ form_label(registrationFormular.email) }}</td>
+    <td>{{ form_widget(registrationFormular.email) }}</td> 
+
+  </tr>
+    <tr>
+    <td>{{ form_label(registrationFormular.password) }}</td>
+    <td>{{ form_widget(registrationFormular.password) }}</td> 
+
+  </tr>
+  <tr>
+    <td></td>
+    <td>{{ form_row(registrationFormular.submit) }}</td> 
+
+  </tr>
+  
+</table>
+{{ form_rest(registrationFormular) }}
+{{ form_end(registrationFormular)}}
+
+{% endblock %}

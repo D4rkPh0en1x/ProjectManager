@@ -12,29 +12,29 @@
     <div class="collapse navbar-collapse justify-content-center" id="nav-content">
     	<ul class="navbar-nav nav" id="myNav" >
       		<li class="nav-item">
-        		<a class="nav-link active" id="home-tab" href="/" role="tab">Home</a>
+        		<a class="nav-link active" id="home-tab" href="{{ path ('homepage') }}" role="tab">Home</a>
       		</li>
       		<li class="nav-item">
-        		<a class="nav-link" id="description-tab" href="/" role="tab">Description</a>
+        		<a class="nav-link" id="description-tab" href="{{ path ('homepage') }}" role="tab">Description</a>
       		</li>
       		<li class="nav-item">
-        		<a class="nav-link" id="contact-tab" href="/" role="tab">Contact</a>
+        		<a class="nav-link" id="contact-tab" href="{{ path ('homepage') }}" role="tab">Contact</a>
       		</li>
       		<li class="nav-item dropdown">
         		<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="/" role="button">Project</a>
         			<div class="dropdown-menu">
-                      <a class="dropdown-item" href="/">List</a>
-                      <a class="dropdown-item" href="/add/product">Create</a>
+                      <a class="dropdown-item" href="{{ path ('homepage') }}">List</a>
+                      <a class="dropdown-item" href="{{ path ('add_product') }}">Create</a>
     
         			</div>
       		</li>
       		<li class="nav-item dropdown">
         		<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="/" role="button">User</a>
         			<div class="dropdown-menu">
-                      <a class="dropdown-item" href="/">Login</a>
-                      <a class="dropdown-item" href="/">Register</a>
+                      <a class="dropdown-item" href="{{ path ('homepage') }}">Login</a>
+                      <a class="dropdown-item" href="{{ path ('register_user') }}">Register</a>
                       <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="/">Logout</a>
+                      <a class="dropdown-item" href="{{ path ('homepage') }}">Logout</a>
         			</div>
       		</li>
     
