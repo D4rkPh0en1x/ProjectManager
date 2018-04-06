@@ -15,31 +15,57 @@ use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 
 
-class ProductController
+
+class ProductController extends Controller
 {
     public function addProduct(Environment $twig, FormFactoryInterface $factory, Request $request, ObjectManager $manager, SessionInterface $session, UrlGeneratorInterface $urlGenerator)
     {
         $product = new Product();
         $builder = $factory->createBuilder(FormType::class, $product);
-        $builder->add('name', TextType::class)
-                ->add(
-                    'description', 
-                    TextareaType::class,
-                    [
-                        'required' => false,
-                        'label' => 'Product Description',
-                        'attr' => [
-                            'placeholder' => 'Please enter a product description',
-                            'class' => 'classname'   
-                        ]
-                        
+        $builder->add(
+            'name', 
+            TextType::class,
+                [
+                    'required' => false,
+                    'label' => 'FORM.PRODUCT.NAME',
+                    'attr' => [
+                        'placeholder' => 'FORM.PRODUCT.PLACEHOLDER.NAME',
+                        'class' => 'classname'
                     ]
-                    )
-                ->add('version', TextType::class)
-                ->add('submit', SubmitType::class);
+                ] 
+            )        
+
+            ->add(
+                'description', 
+                TextareaType::class,
+                [
+                    'required' => false,
+                    'label' => 'FORM.PRODUCT.DESCRIPTION',
+                    'attr' => [
+                        'placeholder' => 'FORM.PRODUCT.PLACEHOLDER.DESCRIPTION',
+                        'class' => 'classname'   
+                    ]
+                    
+                ]
+            )
+            ->add(
+                'version',
+                TextareaType::class,
+                [
+                    'required' => false,
+                    'label' => 'FORM.PRODUCT.VERSION',
+                    'attr' => [
+                        'placeholder' => 'FORM.PRODUCT.PLACEHOLDER.VERSION',
+                        'class' => 'classname'
+                    ]
+                    
+                ]
+                )
+            ->add('submit', SubmitType::class);
         
         $form = $builder->getForm();
         $form->handleRequest($request);
@@ -64,5 +90,17 @@ class ProductController
                 )
             );        
     }
+    public function listProduct(Environment $twig, Request $request, ObjectManager $manager, SessionInterface $session, UrlGeneratorInterface $urlGenerator)
+    {
+       
+      $repository = $this->getDoctrine()
+                         ->getRepository(Product::class);
+      $products = $repository->findAll();
+      return new Response(
+            $twig->render(
+                'Product/listProduct.html.twig',
+                array('products' => $products)
+               )
+            );        
+    }
 }
-

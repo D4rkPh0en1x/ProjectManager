@@ -1,0 +1,41 @@
+HEADER:
+  HOME: Accueil
+  DESCRIPTION: Description
+  CONTACT: Contactez nous
+  PROJECT: Projets
+  LISTPROJECT: Lister les projets
+  CREATEPROJECT: Créer un nouveau projet
+  USER: Utilisateur
+  LOGIN: Identification
+  REGISTER: Enregister
+  LOGOUT: Logout
+  TRANSLATIONLIST: "Langues"
+  TRANSLATIONEN: "English"
+  TRANSLATIONFR: "Français"
+FORM:
+  PRODUCT:
+    NAME: 'Nom du projet'
+    DESCRIPTION: "Description du projet" 
+    VERSION: "Version actuelle"
+    PLACEHOLDER: 
+      NAME: "Veuillez insérer un nom de projet"
+      DESCRIPTION: "Veuillez insérer une description du projet"
+      VERSION: "Veuillez insérer la version actuelle du projet x.x.x" 
+  USER:
+    USERNAME: "Nom d'utilisateur"
+    FIRSTNAME: "Prénom"
+    LASTNAME: "Nom"
+    MAIL: "Courriel"
+    PASSWORD: "Mot de passe"
+    PASSWORD1: "Mot de passe"
+    PASSWORD2: "Répétition du mot de passe"
+    PLACEHOLDER: 
+        USERNAME: "Veuillez entrer votre nom d'utilisateur"
+        FIRSTNAME: "Veuillez entrer votre prénom"
+        LASTNAME: "Veuillez entrer votre nom"
+        MAIL: "Veuillez entrer votre courriel"
+        PASSWORD1: "Veuillez entrer votre mot de passe"
+        PASSWORD2: "Veuillez répéter votre mot de passe"
+
+    
+    

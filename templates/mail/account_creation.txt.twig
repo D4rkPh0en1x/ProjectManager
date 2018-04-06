@@ -1,0 +1,5 @@
+Hello {{ user.getUsername() }}
+
+Please confirm your email address by clicking on the following link:
+
+{{ absolute_url(path('user_activate', {'token' : user.getEmailToken()})) }}

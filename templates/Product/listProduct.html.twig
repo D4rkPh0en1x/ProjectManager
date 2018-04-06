@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} - List Projects{% endblock %}
+
+{% block body %}
+
+
+Listing projects:
+	
+	
+<table>
+    {% for product in products %}
+        <tr>
+            <td>{{ product.name }}</td>
+            <td>{{ product.description }}</td>
+			<td>{{ product.version }}</td>
+        </tr>
+    {% endfor %}
+</table>
+	
+	
+{% endblock %}

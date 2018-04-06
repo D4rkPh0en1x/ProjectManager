@@ -30,9 +30,9 @@ class UserController
             TextType::class,
             [
                 'required' => true,
-                'label' => 'User name',
+                'label' => 'FORM.USER.USERNAME',
                 'attr' => [
-                    'placeholder' => 'Please enter your username',
+                    'placeholder' => 'FORM.USER.PLACEHOLDER.USERNAME',
                     'class' => 'registrationForm'
                 ]
                 
@@ -43,9 +43,9 @@ class UserController
                 TextType::class,
                 [
                     'required' => true,
-                    'label' => 'First name',
+                    'label' => 'FORM.USER.FIRSTNAME',
                     'attr' => [
-                        'placeholder' => 'Please enter your firstname',
+                        'placeholder' => 'FORM.USER.PLACEHOLDER.FIRSTNAME',
                         'class' => 'registrationForm'
                     ]
                     
@@ -56,9 +56,9 @@ class UserController
                 TextType::class,
                 [
                     'required' => true,
-                    'label' => 'Last name',
+                    'label' => 'FORM.USER.LASTNAME',
                     'attr' => [
-                        'placeholder' => 'Please enter your lastname',
+                        'placeholder' => 'FORM.USER.PLACEHOLDER.LASTNAME',
                         'class' => 'registrationForm'
                     ]
                     
@@ -69,9 +69,9 @@ class UserController
                 TextType::class,
                 [
                     'required' => true,
-                    'label' => 'E-Mail Address',
+                    'label' => 'FORM.USER.MAIL',
                     'attr' => [
-                        'placeholder' => 'Please enter your email address',
+                        'placeholder' => 'FORM.USER.PLACEHOLDER.MAIL',
                         'class' => 'registrationForm'
                     ]
                     
@@ -83,10 +83,10 @@ class UserController
                 [
                     'type' => PasswordType::class,
                     'invalid_message' => 'The password fields must match.',
-                    'first_options'  => array('label' => 'Password'),
-                    'second_options' => array('label' => 'Repeat Password', 'attr' => array('placeholder' => 'Please repeat your password')),
+                    'first_options'  => array('label' => 'FORM.USER.PASSWORD1', 'attr' => array('placeholder' => 'FORM.USER.PLACEHOLDER.PASSWORD1')),
+                    'second_options' => array('label' => 'FORM.USER.PASSWORD2', 'attr' => array('placeholder' => 'FORM.USER.PLACEHOLDER.PASSWORD2')),
                     'required' => true,
-                    'label' => 'Password',
+                    'label' => 'FORM.USER.PASSWORD',
                     
                     'options' => array('attr' => array('class' => 'password-field registrationForm', 'placeholder' => 'Please enter a password')),
              
@@ -112,13 +112,17 @@ class UserController
                 $message->setFrom('frank@datateam.lu')
                         ->setTo($user->getEmail())
                         ->setSubject('Validate your account')
+                        ->setContentType('text/html')
                         ->setBody(
                             $twig->render('mail/account_creation.html.twig',
                                 ['user' => $user]
                                 )
-                            );
-                
-                
+                          )->addPart(
+                            $twig->render('mail/account_creation.txt.twig',
+                              ['user' => $user]
+                              ), 'text/plain'
+                          );
+ 
                 $mailer->send($message);
                 
                 $session->getFlashBag()->add('info', 'The user was created successfully, please check your mails');

@@ -1,0 +1,38 @@
+HEADER:
+  HOME: Home
+  DESCRIPTION: Description
+  CONTACT: Contact
+  PROJECT: Project
+  LISTPROJECT: List projects
+  CREATEPROJECT: Create project
+  USER: User
+  LOGIN: Login
+  REGISTER: Register
+  LOGOUT: Logout
+  TRANSLATIONLIST: "Languages"
+  TRANSLATIONEN: "English"
+  TRANSLATIONFR: "Français"
+FORM:
+    PRODUCT:
+      NAME: "Project name"
+      DESCRIPTION: "Project description" 
+      VERSION: "Version"
+      PLACEHOLDER: 
+        NAME: "Please insert a project name"
+        DESCRIPTION: "Please insert a project description"
+        VERSION: "Please insert the actuel version x.x.x" 
+    USER:
+      USERNAME: "User name"
+      FIRSTNAME: "First name"
+      LASTNAME: "Last name"
+      MAIL: "E-Mail address"
+      PASSWORD: "Password"
+      PASSWORD1: "Password"
+      PASSWORD2: "Password repeat"
+      PLACEHOLDER: 
+        USERNAME: "Please insert your username"
+        FIRSTNAME: "Please insert your first name"
+        LASTNAME: "Please insert your last name"
+        MAIL: "Please insert your e-mail addresse"
+        PASSWORD1: "Please type your password"
+        PASSWORD2: "Please retype your password"
