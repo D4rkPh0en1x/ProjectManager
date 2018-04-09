@@ -34,4 +34,44 @@ user_activate:
      requirements:
           _locale: 'en|fr'
           token: '[a-z0-9-]+' 
-      
+
+username_available:
+    path: /username/available
+    controller: App\Controller\UserController::usernameAvailable
+    methods: ['POST']      
+    
+login:
+    path: /{_locale}/login
+    controller: App\Controller\UserController::login
+    defaults:
+      _locale: 'en'   
+    requirements:
+       _locale: 'en|fr' 
+ 
+logout:
+    path: /logout
+
+ 
+    
+    
+    
+       
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
