@@ -16,6 +16,8 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use App\Entity\Comment;
+use App\Form\CommentType;
 
 
 
@@ -106,18 +108,34 @@ class ProductController extends Controller
             );        
     }
     
-    public function productDetails(Environment $twig, Request $request, SessionInterface $session, 
-        UrlGeneratorInterface $urlGenerator)
+    public function productDetails(Environment $twig, Request $request, FormFactoryInterface $formFactory)
     {
         $id = $request->query->get('id');
         $repository = $this->getDoctrine()
         ->getRepository(Product::class);
         $product = $repository->find($id);
+        
+        $comment = new Comment();
+        $form = $formFactory->create(
+            CommentType::class,
+            $comment,
+            ['stateless' => true]
+            );
+        
+        
         return new Response(
             $twig->render(
                 'Product/productDetails.html.twig',
-                array('product' => $product)
+             
+                [
+                    'product' => $product,
+                    'routeAttr' => ['id' => $product->getId()],
+                    'formComment' => $form->createView()
+                ]
+   
                 )
+     
+            
             );
     }
 }

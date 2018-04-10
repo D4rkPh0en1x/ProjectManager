@@ -10,7 +10,22 @@
     	
     
     {{ product.description }}<br/><br/>
+    <div class="productComment">
+        {% for comment in product.getComments() %}
+        	{% for file in comment.getFiles() %}
+        		{% if file.getMimeType()|slice(0,6) == 'image/' %}
+            		<img src="{{ file.getFileUrl() }}" alt="{{ file.getName() }}">
+            	{% else %}
+            		<button class="btn-warning"><a href="{{ file.getFileUrl() }}">{{ file.getName() }}</a></button>
+        		{% endif %}
+        		
+            {% endfor %}
+            {{ comment.getComment() }}
+        {% endfor %}
+    </div>
     
+    {{ form(formComment) }}
+        
     <button class="btn btn-block btn-success"><a href="{{ path ('list_product') }}">BACK</a></button><br/><br/>
 </div>	
 	

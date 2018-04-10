@@ -32,8 +32,13 @@
       		<li class="nav-item dropdown">
         		<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="/" role="button">{{ 'HEADER.TRANSLATIONLIST'|trans }}</a>
         			<div class="dropdown-menu">
-                      <a class="dropdown-item" href="{{ path(app.request.attributes.get('_route'), {'_locale': 'en'}) }}">{{ 'HEADER.TRANSLATIONEN'|trans }}</a>
-                      <a class="dropdown-item" href="{{ path(app.request.attributes.get('_route'), {'_locale': 'fr'}) }}">{{ 'HEADER.TRANSLATIONFR'|trans }}</a>
+        			
+        			  {% set enRouteVar = {'_locale': 'en'}|merge(routeAttr|default([])) %}
+					  <a class="dropdown-item" href="{{ path(app.request.attributes.get('_route'), enRouteVar) }}">{{ 'HEADER.TRANSLATIONEN'|trans }}</a>
+				      {% set frRouteVar = {'_locale': 'fr'}|merge(routeAttr|default([])) %}
+					  <a class="dropdown-item" href="{{ path(app.request.attributes.get('_route'), frRouteVar) }}">{{ 'HEADER.TRANSLATIONFR'|trans }}</a>
+                      
+                      
     
         			</div>
       		</li>
