@@ -79,3 +79,67 @@ hr {
 .username-unavailable{
   color:red;
 }
+
+.ProjectContainer{
+  margin-left:auto;
+  margin-right:auto;
+  padding: 20px;
+
+  width: 75%;
+  color: black;
+  background-color: white;
+  border-radius: 25px;
+
+}
+
+.ProjectContainer td{
+  width:30%;
+  text-align: center;
+}
+
+.ProjectContainer table{
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.ProjectContainer td .btn{
+  text-align: center;
+}
+
+.tableHeader{
+  text-decoration: underline;
+}
+
+.detailProduct{
+  margin-left:auto;
+  margin-right:auto;
+  padding: 20px;
+  width: 90%;
+  color: black;
+  background-color: white;
+  border-radius: 25px;
+}
+
+.detailProduct h3{
+  text-align: center;
+}
+
+.ProjectContainer h3{
+  text-align: center;
+}
+
+.detailProduct .btn{
+  margin-left:auto;
+  margin-right:auto;
+  text-align: center;
+  width: 150px;
+}
+
+a{
+  text-decoration: none;
+  color: black;
+}
+
+a:hover{
+  color: black;
+}

@@ -5,18 +5,26 @@
 {% block body %}
 
 
-Listing projects:
+
 	
-	
-<table>
-    {% for product in products %}
-        <tr>
-            <td>{{ product.name }}</td>
-            <td>{{ product.description }}</td>
-			<td>{{ product.version }}</td>
+<div class="ProjectContainer">
+<h3>Listing projects:</h3><br/>	
+    <table>
+        <tr class="tableHeader">
+            <td>Project Name</td>
+			<td>Project Version</td>
+			<td></td>
         </tr>
-    {% endfor %}
-</table>
-	
+        {% for product in products %}
+    
+                <tr>
+                    <td>{{ product.name }}</td>
+        			<td>{{ product.version }}</td>
+        			<td><button class="btn btn-block btn-success"><a href="{{ path ('product_details') }}?id={{ product.id }}" >Details</a></button></td>
+                </tr>
+            
+        {% endfor %}
+    </table>
+</div>	
 	
 {% endblock %}

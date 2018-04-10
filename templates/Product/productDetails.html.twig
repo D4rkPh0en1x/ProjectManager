@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} - Project DEtails{% endblock %}
+
+{% block body %}
+
+<div class="detailProduct">
+    <h3>Details of project {{ product.name }} with version {{ product.version }}</h3><br/>
+    	
+    	
+    
+    {{ product.description }}<br/><br/>
+    
+    <button class="btn btn-block btn-success"><a href="{{ path ('list_product') }}">BACK</a></button><br/><br/>
+</div>	
+	
+{% endblock %}

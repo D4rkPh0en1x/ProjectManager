@@ -22,7 +22,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class ProductController extends Controller
 {
-    public function addProduct(Environment $twig, FormFactoryInterface $factory, Request $request, ObjectManager $manager, SessionInterface $session, UrlGeneratorInterface $urlGenerator)
+    public function addProduct(Environment $twig, FormFactoryInterface $factory, Request $request, ObjectManager $manager, 
+        SessionInterface $session, UrlGeneratorInterface $urlGenerator)
     {
         $product = new Product();
         $builder = $factory->createBuilder(FormType::class, $product);
@@ -90,7 +91,8 @@ class ProductController extends Controller
                 )
             );        
     }
-    public function listProduct(Environment $twig, Request $request, ObjectManager $manager, SessionInterface $session, UrlGeneratorInterface $urlGenerator)
+    public function listProduct(Environment $twig, Request $request, ObjectManager $manager, SessionInterface $session, 
+        UrlGeneratorInterface $urlGenerator)
     {
        
       $repository = $this->getDoctrine()
@@ -102,5 +104,20 @@ class ProductController extends Controller
                 array('products' => $products)
                )
             );        
+    }
+    
+    public function productDetails(Environment $twig, Request $request, SessionInterface $session, 
+        UrlGeneratorInterface $urlGenerator)
+    {
+        $id = $request->query->get('id');
+        $repository = $this->getDoctrine()
+        ->getRepository(Product::class);
+        $product = $repository->find($id);
+        return new Response(
+            $twig->render(
+                'Product/productDetails.html.twig',
+                array('product' => $product)
+                )
+            );
     }
 }

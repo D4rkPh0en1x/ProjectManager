@@ -21,6 +21,12 @@ list_product:
      controller: App\Controller\ProductController::listProduct
      requirements:
           _locale: 'en|fr'
+          
+product_details:
+     path: /{_locale}/product/details
+     controller: App\Controller\ProductController::productDetails
+     requirements:
+          _locale: 'en|fr'          
       
 register_user:
      path: /{_locale}/register/user
