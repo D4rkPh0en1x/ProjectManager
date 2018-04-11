@@ -30,3 +30,10 @@
 </div>	
 	
 {% endblock %}
+
+
+{% block javascripts %}
+	{{ parent() }}
+	<script src="/js/commentFileAdder.js" type="text/javascript"></script>
+	
+{% endblock %}
